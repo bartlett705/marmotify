@@ -3,20 +3,36 @@ const express = require('express');
 const bodyparser = require('body-parser').urlencoded({extended: true});
 const jsonparser = require('body-parser').json();
 // Configuration
-const PORT = process.env.PORT || 3000;
 const server = express();
-const { respondWithToDos, validateAndCommitPost } = require('../server/db');
+const serverObj = require('http').Server(server);
+
+const PORT = process.env.PORT || 3000;
+
+const serverHandle = server.listen(PORT, () => {
+  console.log('----===***WELCOME***===----');
+  console.log(`Listening on localhost:${PORT}`);
+  console.log('---===---===---===---===---');
+});
+
+const io = require('socket.io')(serverHandle);
+
+// io.on('connection', (socket) => {
+//   console.log('a user connected');
+//
+//   socket.on('disconnect', () => {
+//     console.log('user disconnected');
+//   });
+// });
+
+const { retrieveToDos, validateAndCommitPost } = require('../server/db');
+const socketController = require('./socketController');
+socketController.initSocket(io);
+
 // Standard Middleware
-server.use(express.static(`${__dirname}/../client`));
+server.use(express.static(`${__dirname}/../dist`));
 server.use(bodyparser);
 server.use(jsonparser);
 
 // api routes
-server.get('/todo', respondWithToDos);
-server.post('/todo', validateAndCommitPost)
-
-const serverHandle = server.listen(PORT);
-console.log('----===***WELCOME***===----');
-console.log(`Listening on localhost:${PORT}`);
-console.log('---===---===---===---===---');
-module.exports = serverHandle;
+// server.get('/todo', retr);
+// server.post('/todo', validateAndCommitPost)

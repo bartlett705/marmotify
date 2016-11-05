@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "A super-cool to-do list",
   "scripts": {
+    "hot": "webpack-dev-server --inline --hot",
     "start": "nodemon server/server.js",
-    "main": "server/server.js",
+    "build": "webpack -w",
     "test": "istanbul cover test/tape.js"
   },
   "repository": {
@@ -14,10 +15,26 @@
   "author": "Ahmad Kanawi",
   "license": "MIT",
   "dependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
     "body-parser": "^1.15.2",
+    "css-loader": "^0.25.0",
     "express": "^4.14.0",
+    "file-loader": "^0.9.0",
+    "moment": "^2.15.2",
     "mongoose": "^4.6.4",
-    "nodemon": "^1.11.0"
+    "node-sass": "^3.11.1",
+    "nodemon": "^1.11.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "sass-loader": "^4.0.2",
+    "socket.io": "^1.5.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   },
   "devDependencies": {
     "eslint": "^3.8.1",

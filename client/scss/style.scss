@@ -1,0 +1,77 @@
+$background: (#300 + dodgerblue) * 0.3;
+$text: white * 0.8;
+$accent: forestgreen;
+
+$label1: aliceblue;
+$label2: orange;
+
+body {
+  font-family: sans-serif;
+  color: $text;
+  background-color: $background;
+}
+h3 {
+  text-align: center;
+}
+button {
+  display: inline;
+  background: $accent;
+  border: 1px solid $accent * 1.9;
+  padding: 0.1em;
+  margin: 0.5em;
+  border-radius: 3px;
+}
+.add-container {
+  width: 100%;
+  text-align: center;
+  margin: 1em auto;
+}
+.todo-added, .todo-due {
+  float: right;
+}
+.todo-item {
+  margin: 0.5em;
+}
+.todo-item:nth-of-type(odd) {
+  background-color: $background * 1.4;
+}
+.todo-list, .done-list {
+  list-style-type:decimal-leading-zero;
+}
+.done-list li span {
+  text-decoration:line-through;
+  text-decoration-style: double;
+  text-decoration-color: blue;
+}
+.done-list li span:nth-child(1) {
+  text-decoration: none;
+}
+.todo-title, .todo-tag, .todo-due, .todo-added {
+  margin: 0.25em 0.5em;
+  display: inline-block;
+  min-width: 10em;
+  max-width: 20em;
+}
+.todo-tag {
+  color: black;
+  min-width: 1em;
+  padding: 0.25em;
+  border-radius: 3px;
+  font-size: 0.75em;
+  background-color: $label1;
+}
+.todo-label2 {
+  background-color: $label2;
+}
+
+input  {
+  border: 1px dashed $background * 2;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 0 1em;
+  color: white * 0.8;
+  background-color: $background * 0.5;
+}
+input[name='dueDate'] {
+  color: grey + #f00 * 0.5;
+}
