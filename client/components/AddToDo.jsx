@@ -10,7 +10,7 @@ class AddToDo extends React.Component {
         <form name='newToDo'>
           <input type="text" name="title" placeholder="title"/>
           <input type="text" name="tag" placeholder="tag"/>
-          <input type="text" name="dueDate" defaultValue={moment().add(2, 'days').format()}/>
+          <input className="flatpickr" name ="dueDate" type="text" defaultValue={moment().add(2, 'days').format()}/>
         </form>
         <button onClick={() => this.props.handleSubmit(document.forms.newToDo)}>Add</button>
       </div>

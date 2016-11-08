@@ -31,9 +31,18 @@ class ToDoList extends React.Component {
       this.initSocket();
     });
   }
+  componentDidMount() {
+    console.log('Inserting date picker...');
+    this.calendar = new flatpickr(".flatpickr", {
+      enableTime: true,
+      altInput: true,
+      altFormat: "j M, H:i",
+    });
+  }
   handleSubmit(form, e) {
     const title = form.title.value;
     const tag = form.tag.value;
+    // console.log(this.calendar.dateStr);
     const dueDate = form.dueDate.value;
     const newToDoObj = {
       title,
