@@ -40,6 +40,7 @@ class ToDoList extends React.Component {
     });
   }
   handleSubmit(form, e) {
+    e.preventDefault();
     const title = form.title.value;
     const tag = form.tag.value;
     // console.log(this.calendar.dateStr);

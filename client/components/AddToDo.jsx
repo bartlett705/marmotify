@@ -7,12 +7,12 @@ class AddToDo extends React.Component {
   render() {
     return (
       <div className="add-container">
-        <form name='newToDo'>
+        <form name='newToDo' onSubmit={(e) => this.props.handleSubmit(document.forms.newToDo, e)}>
           <input type="text" name="title" placeholder="title"/>
           <input type="text" name="tag" placeholder="tag"/>
           <input className="flatpickr" name ="dueDate" type="text" defaultValue={moment().add(2, 'days').format()}/>
+          <button>Add</button>
         </form>
-        <button onClick={() => this.props.handleSubmit(document.forms.newToDo)}>Add</button>
       </div>
     );
   }
